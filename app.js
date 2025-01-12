@@ -36,12 +36,12 @@ function getRandomColor() {
 }
 
 // making sides of triangle
-ctx.beginPath();
-ctx.moveTo(corners[0].x, corners[0].y);
-ctx.lineTo(corners[1].x, corners[1].y);
-ctx.lineTo(corners[2].x, corners[2].y);
-ctx.lineTo(corners[0].x, corners[0].y);
-ctx.stroke();
+// ctx.beginPath();
+// ctx.moveTo(corners[0].x, corners[0].y);
+// ctx.lineTo(corners[1].x, corners[1].y);
+// ctx.lineTo(corners[2].x, corners[2].y);
+// ctx.lineTo(corners[0].x, corners[0].y);
+// ctx.stroke();
 
 // getting starting point
 let initial_x = getRandomNumber(0, 800);
@@ -52,7 +52,7 @@ ctx.fillStyle = "blue";
 ctx.fillRect(initial_x, initial_y, 5, 5);
 
 let iteration = 0;
-const maxIterations = 50000;
+const maxIterations = 100000;
 
 const interval = setInterval(() => {
   if (iteration >= maxIterations) {
@@ -71,10 +71,11 @@ const interval = setInterval(() => {
 
   //   ctx.fillStyle = getRandomColor();
   ctx.fillStyle = "black";
-  ctx.fillRect(midpoint.x, midpoint.y, 1, 1);
+  ctx.fillRect(midpoint.x, midpoint.y, 0.5, 0.5);
 
   initial_x = midpoint.x;
   initial_y = midpoint.y;
 
   iteration++;
+  console.log(iteration);
 }, 0.5);
